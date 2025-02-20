@@ -7,7 +7,7 @@ resource "random_integer" "subnet_id_selection" {
 }
 
 resource "aws_instance" "webapp" {
-  ami                    = "ami-04c913012f8977029"
+  ami                    = "ami-053a45fff0a704a47"
   instance_type          = var.instance_type
   subnet_id              = var.public_subnet_ids[random_integer.subnet_id_selection.result]
   vpc_security_group_ids = [aws_security_group.webapp.id]
@@ -24,7 +24,7 @@ resource "aws_instance" "webapp" {
 resource "aws_security_group" "webapp" {
   name_prefix = "${var.name_prefix}-webapp"
   description = "Allow traffic to webapp"
-  vpc_id      = var.vpc_id
+  vpc_id      =  "vpc-053666abf89648be2"
 
   ingress {
     from_port        = 80

@@ -1,9 +1,11 @@
 data "aws_vpc" "selected" {
+  
   filter {
     name   = "tag:Name"
-    values = ["shared-vpc"]
+    values = ["arpita-test-tr-vpc"]
+    
   }
-}
+ }
 
 data "aws_subnets" "public" {
   filter {
